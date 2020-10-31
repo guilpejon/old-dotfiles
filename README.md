@@ -27,14 +27,6 @@ TODO
 
 To get started, make sure you have [curl](https://github.com/curl/curl) and [git](https://git-scm.com/downloads) installed.
 
-1. Tell git who you are
-```bash
-git config -f ~/.gitlocal user.email "email@yoursite.com"
-git config -f ~/.gitlocal user.name "Name Lastname"
-```
-
-2. Run the install script
-
 ```shell
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/guilpejon/dotfiles/main/gldf.sh)"
 ```

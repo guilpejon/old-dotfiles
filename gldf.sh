@@ -124,7 +124,7 @@ install() {
 	clone_gldf
 	set_alias
   package_installation
-  rake install
+  rake install -f "$GDF/Rakefile"
   logo
 
 	printf "\t\t\t%s\n" "     is now installed!"
@@ -148,7 +148,7 @@ uninstall() {
 }
 
 menu() {
-  printf "\n\n%s\n" "Welcome to ${BOLD}GLDF${RESET}!"
+  printf "\n%s\n" "Welcome to ${BOLD}GLDF${RESET}!"
   printf "%s\n" "................."
   PS3='➤ Please enter your choice: '
   options=("Install" "Update" "Uninstall" "Exit")
