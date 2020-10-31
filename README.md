@@ -33,7 +33,7 @@ git config -f ~/.gitlocal user.email "email@yoursite.com"
 git config -f ~/.gitlocal user.name "Name Lastname"
 ```
 
-2. Run the install script
+2. Start gldf menu
 
 ```shell
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/guilpejon/dotfiles/main/gldf.sh)"
@@ -49,15 +49,6 @@ Just run **`gldf`** anywhere in your terminal.
 gldf
 ```
 Leave the rest to it.
-
-## What else 👀
-
-gldf exports 2 variables in your default shell config (`bashrc`, `zshrc` etc):
-
-1. `DOT_DEST`: used for finding the location of dotfiles repository in your local system.
-2. `DOT_REPO`: the url to the remote dotfile repo.
-
-You can change these manually if any one of the info changes.
 
 ## Author
 
