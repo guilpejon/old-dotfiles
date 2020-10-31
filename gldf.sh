@@ -61,6 +61,7 @@ catch_ctrl+c() {
   goodbye
   exit
 }
+
 trap 'catch_ctrl+c' SIGINT
 
 clone_gldf() {
