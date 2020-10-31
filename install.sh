@@ -113,4 +113,14 @@ main () {
 
 }
 
+# check if tput exists
+if ! command -v tput > /dev/null 2>&1; then
+  # tput could not be found :(
+  BOLD=""
+	RESET=""
+else
+	BOLD=$(tput bold)
+	RESET=$(tput sgr0)
+fi
+
 main
