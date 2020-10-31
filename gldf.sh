@@ -98,7 +98,7 @@ set_alias(){
 }
 
 # install ruby and all its dependencies
-packages_installation()
+package_installation()
 {
   os_name="$(uname -s)"
 
@@ -109,9 +109,9 @@ packages_installation()
   esac
 
   if [ "${machine}" = "linux" ]; then
-    ./linux-install.sh
+    "$GLDF/linux-install.sh"
   elif [ "${machine}" = "mac" ]; then
-    ./mac-install.sh
+    "$GLDF/mac-install.sh"
   else
     echo "System not supported"
     exit 1
@@ -123,7 +123,7 @@ packages_installation()
 install() {
 	clone_gldf
 	set_alias
-  packages_installation
+  package_installation
   rake install
   logo
 
@@ -142,7 +142,9 @@ update() {
 }
 
 uninstall() {
-  echo "Not yet implemented"
+  echo "This command only removes the GLDF folder"
+  rm -rf $GLDF
+  echo "${BOLD}[✔️ ] Successfully uninstalled GLDF${RESET}"
 }
 
 menu() {
