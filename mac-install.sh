@@ -41,7 +41,6 @@ brew update
 # DEV TOOLS
 ##############
 
-install_or_upgrade git
 install_or_upgrade imagemagick
 install_or_upgrade postgres
 install_or_upgrade node
