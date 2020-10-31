@@ -1,5 +1,15 @@
 set -e
 
+# check if tput exists
+if ! command -v tput &> /dev/null; then
+  # tput could not be found
+  BOLD=""
+  RESET=""
+else
+  BOLD=$(tput bold)
+  RESET=$(tput sgr0)
+fi
+
 install_msg() {
   printf '%s\n' ----------------------------------------
   echo "> Installing or Upgrading $1"
@@ -49,6 +59,8 @@ ln -sfv /usr/local/opt/redis/*.plist ~/Library/LaunchAgents
 brew tap heroku/brew
 install_or_upgrade heroku
 
+echo "${BOLD}[✔️ ] Installed all dev tools${RESET}"
+
 ##############
 # APPS
 ##############
@@ -59,3 +71,5 @@ brew cask install google-chrome
 brew cask install notion
 brew cask install whatsapp
 brew cask install telegram
+
+echo "${BOLD}[✔️ ] Installed all apps${RESET}"
