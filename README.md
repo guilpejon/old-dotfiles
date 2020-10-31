@@ -42,15 +42,6 @@ gldf
 ```
 Leave the rest to it.
 
-## What else 👀
-
-gldf exports 2 variables in your default shell config (`bashrc`, `zshrc` etc):
-
-1. `DOT_DEST`: used for finding the location of dotfiles repository in your local system.
-2. `DOT_REPO`: the url to the remote dotfile repo.
-
-You can change these manually if any one of the info changes.
-
 ## Author
 
 **Guilherme Pejon** ([Web](https://guilpejon.me) | [Twitter](https://twitter.com/guilpejon))
