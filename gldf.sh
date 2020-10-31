@@ -57,12 +57,12 @@ goodbye() {
 }
 
 # function called by trap
-catch_ctrl+c() {
+catch_ctrl_c() {
   goodbye
   exit
 }
 
-trap 'catch_ctrl+c' SIGINT
+trap 'catch_ctrl_c' SIGINT
 
 clone_gldf() {
   if ! [ -d "$GLDF" ]; then
