@@ -36,7 +36,7 @@ git config -f ~/.gitlocal user.name "Name Lastname"
 2. Run the install script
 
 ```shell
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/guilpejon/dotfiles/main/install.sh)"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/guilpejon/dotfiles/main/gldf.sh)"
 ```
 
 > **gldf** is installed by default in your `$HOME` directory.
