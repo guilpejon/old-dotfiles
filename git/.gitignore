@@ -1,16 +1,17 @@
-# OSX       taken from: https://github.com/github/gitignore/blob/master/Global/OSX.gitignore
-# ----------------------------------------------------------------------------------------------
+# Compiled Python files
+*.pyc
+
+# Folder view configuration files
 .DS_Store
-# Thumbnails
+Desktop.ini
+
+# Thumbnail cache files
 ._*
-# Files that might appear on external disk
+Thumbs.db
+
+# Files that might appear on external disks
 .Spotlight-V100
 .Trashes
-
-# Windows   taken from: https://github.com/github/gitignore/blob/master/Global/Windows.gitignore
-# ----------------------------------------------------------------------------------------------
-# Windows image file caches
-Thumbs.db
 
 # Folder config file
 Desktop.ini

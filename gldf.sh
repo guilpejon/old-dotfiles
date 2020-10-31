@@ -61,7 +61,6 @@ catch_ctrl_c() {
   goodbye
   exit
 }
-
 trap 'catch_ctrl_c' SIGINT
 
 clone_gldf() {
@@ -120,16 +119,35 @@ package_installation()
   "$GLDF/agnostic-install.sh"
 }
 
+git_config() {
+  rsync "$GLDF/git/.gitconfig" -avh --no-perms . $HOME
+  rsync "$GLDF/git/.gitignore" -avh --no-perms . $HOME
+
+  read -p 'Git user name: ' user_name
+  read -p 'Git user email: ' user_email
+
+  git config --global user.name user_name
+  git config --global user.email user_email
+}
+
 install() {
 	clone_gldf
 	set_alias
   package_installation
-  rake install -f "$GDF/Rakefile"
+  git_config
   logo
 
 	printf "\t\t\t%s\n" "     is now installed!"
 	printf "\n%s" "Run 'gldf version' to check latest version."
 	printf "\n%s\n" "Run 'gldf' to configure first time setup."
+}
+
+install_confirmation() {
+  read -p "This may overwrite existing configuration files in your home directory. Are you sure? (y/n) " -n 1;
+  echo "";
+  if [[ $REPLY =~ ^[Yy]$ ]]; then
+    install;
+  fi;
 }
 
 update() {
@@ -157,7 +175,7 @@ menu() {
 		read -p "Select your command [${BOLD}1${RESET}]: " -n 1 -r USER_INPUT
 		USER_INPUT=${USER_INPUT:-1}
 		case $USER_INPUT in
-			[1]* ) install;;
+			[1]* ) install_confirmation;;
 			[2]* ) update;;
 			[3]* ) uninstall;;
 			[4/q/Q]* ) goodbye
@@ -177,4 +195,3 @@ intro() {
 
 intro
 menu
-
