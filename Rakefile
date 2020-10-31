@@ -1,6 +1,7 @@
 task :install do
-  install_zplugin
-  install_zsh_config
+  write_git_user_file
+  install_files(Dir.glob('git/*'))
+  # install_zsh_config
 end
 
 private
@@ -10,12 +11,29 @@ def run(cmd)
   `#{cmd}` unless ENV['DEBUG']
 end
 
-def install_zplugin
-  zplugin = "source ~/.zplugin/bin/zplugin.zsh"
-  File.open("#{ENV['HOME']}/.zshrc", 'a+') do |zshrc|
-    if zshrc.readlines.grep(/#{Regexp.escape(zplugin)}/).empty?
-      zshrc.puts(zplugin)
+def install_files(files, method = :symlink)
+  files.each do |f|
+    file = f.split('/').last
+    source = "#{ENV["PWD"]}/#{f}"
+    target = "#{ENV["HOME"]}/.#{file}"
+
+    puts "======================#{file}=============================="
+    puts "Source: #{source}"
+    puts "Target: #{target}"
+
+    if File.exists?(target) && (!File.symlink?(target) || (File.symlink?(target) && File.readlink(target) != source))
+      puts "[Overwriting] #{target}...leaving original at #{target}.backup..."
+      run %{ mv "$HOME/.#{file}" "$HOME/.#{file}.backup" }
     end
+
+    if method == :symlink
+      run %{ ln -nfs "#{source}" "#{target}" }
+    else
+      run %{ cp -f "#{source}" "#{target}" }
+    end
+
+    puts "=========================================================="
+    puts
   end
 end
 

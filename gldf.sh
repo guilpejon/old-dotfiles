@@ -117,7 +117,7 @@ package_installation()
     exit 1
   fi
 
-  ./agnostic_installation.sh
+  "$GLDF/agnostic-install.sh"
 }
 
 install() {
