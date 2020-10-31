@@ -25,7 +25,7 @@ TODO
 ### via `curl`
 
 ```shell
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/guilpejon/gdf/master/install.sh)"
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/guilpejon/dotfiles/main/install.sh)"
 ```
 
 > **gdf** is installed by default in `/home/username/gdf`, your `$HOME` directory.
