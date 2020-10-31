@@ -71,8 +71,10 @@ set_alias(){
 	fi
 
 	if [ "$(basename "$SHELL")" = "zsh" ]; then
+    awk '!/gldf/' "$HOME"/.zshrc > ~/.temp && mv ~/.temp "$HOME"/.zshrc
 		echo "alias gldf='$HOME/gldf/gldf.sh'" >> "$HOME"/.zshrc
 	elif [ "$(basename "$SHELL")" = "bash" ]; then
+    awk '!/gldf/' "$HOME"/.bashrc > ~/.temp && mv ~/.temp "$HOME"/.bashrc
 		echo "alias gldf='$HOME/gldf/gldf.sh'" >> "$HOME"/.bashrc
 	else
 		echo "Couldn't set alias for gldf: ${BOLD}$HOME/gldf/gldf.sh${RESET}"
