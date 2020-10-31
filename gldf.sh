@@ -192,7 +192,7 @@ install() {
 }
 
 install_confirmation() {
-  read -p "This may overwrite existing configuration files in your home directory. Are you sure? (y/n) " -n 1;
+  read -p "\n\nThis may overwrite existing configuration files in your home directory. Are you sure? (y/n) " -n 1;
   echo "";
   if [[ $REPLY =~ ^[Yy]$ ]]; then
     install;
