@@ -96,9 +96,7 @@ set_alias(){
 	echo "${BOLD}[✔️ ] Set alias for GLDF${RESET}"
 }
 
-# install ruby and all its dependencies
-package_installation()
-{
+os() {
   os_name="$(uname -s)"
 
   case "${os_name}" in
@@ -106,10 +104,15 @@ package_installation()
     Darwin*)    machine=mac;;
     *)          machine="UNKNOWN:${os_name}"
   esac
+  echo $machine
+}
 
-  if [ "${machine}" = "linux" ]; then
+# install ruby and all its dependencies
+package_installation()
+{
+  if [ os = "linux" ]; then
     "$GLDF/linux-install.sh"
-  elif [ "${machine}" = "mac" ]; then
+  elif [ os = "mac" ]; then
     "$GLDF/mac-install.sh"
   else
     echo "System not supported"
@@ -120,8 +123,8 @@ package_installation()
 }
 
 git_config() {
-  rsync "$GLDF/git/.gitconfig" -avh --no-perms . $HOME
-  rsync "$GLDF/git/.gitignore" -avh --no-perms . $HOME
+  rsync -avh --no-perms "$GLDF/git/.gitconfig" $HOME
+  rsync -avh --no-perms "$GLDF/git/.gitignore" $HOME
 
   read -p 'Git user name: ' user_name
   read -p 'Git user email: ' user_email
@@ -130,11 +133,45 @@ git_config() {
   git config --global user.email user_email
 }
 
+vim_config() {
+  rsync -avh --no-perms "$GLDF/vim/.vimrc" $HOME
+  rsync -avh --no-perms "$GLDF/vim/coc-settings.json" "$HOME/.vim"
+  rsync -avh --no-perms "$GLDF/vim/plugins.vim" "$HOME/.vim"
+  vim --noplugin -N \"+set hidden\" \"+syntax on\" +PlugClean +PlugInstall! +PlugUpdate +qall
+}
+
+n_of_cores() {
+  if [ "${os}" = "linux" ]; then
+    echo `nproc`
+  elif [ "${os}" = "mac" ]; then
+    echo `sysctl -n hw.ncpu`
+  fi
+}
+
+ruby_config() {
+  rsync -avh --no-perms "$GLDF/ruby/gemrc" $HOME
+
+  bundler_jobs = n_of_cores - 1
+  bundle config --global jobs $bundler_jobs
+}
+
+ctag_config() {
+  rsync -avh --no-perms "$GLDF/ctags/.ctags" $HOME
+}
+
+tmux_config() {
+  rsync -avh --no-perms "$GLDF/tmux/.tmux.conf" $HOME
+}
+
 install() {
 	clone_gldf
 	set_alias
   package_installation
   git_config
+  vim_config
+  ruby_config
+  ctag_config
+  tmux_config
   logo
 
 	printf "\t\t\t%s\n" "     is now installed!"

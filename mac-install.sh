@@ -51,6 +51,7 @@ install_or_upgrade zsh
 install_or_upgrade ctags
 install_or_upgrade ripgrep
 install_or_upgrade z
+install_or_upgrade vim
 
 install_or_upgrade redis
 ln -sfv /usr/local/opt/redis/*.plist ~/Library/LaunchAgents

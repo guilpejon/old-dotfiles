@@ -39,6 +39,7 @@ install_or_upgrade redis-server
 sudo systemctl enable redis-server.service
 
 install_or_upgrade vim-gtk
+install_or_upgrade vim
 install_or_upgrade imagemagick --fix-missing
 install_or_upgrade build-essential
 install_or_upgrade git-core
@@ -69,6 +70,11 @@ install_or_upgrade libpq-dev
 install_or_upgrade libc6-dev
 install_or_upgrade snapd
 install_or_upgrade gh
+install_or_upgrade zsh
+install_or_upgrade ctags
+install_or_upgrade tmux
+install_or_upgrade terminator
+install_or_upgrade ripgrep
 
 curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
 echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
