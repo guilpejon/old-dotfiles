@@ -148,35 +148,31 @@ uninstall() {
 }
 
 menu() {
-  printf "\n%s\n" "Welcome to ${BOLD}GLDF${RESET}!"
-  printf "%s\n" "................."
-  PS3='➤ Please enter your choice: '
-  options=("Install" "Update" "Uninstall" "Exit")
-  select opt in "${options[@]}"
-  do
-      case $opt in
-          "Install")
-              install
-              ;;
-          "Update")
-              update
-              ;;
-          "Uninstall")
-              uninstall
-              ;;
-          "Exit")
-              goodbye
-              break
-              ;;
-          *) echo "Invalid option: $REPLY";;
-      esac
-  done
+	while :
+	do
+		printf "\n%s" "[${BOLD}1${RESET}] Install"
+		printf "\n%s" "[${BOLD}2${RESET}] Update"
+		printf "\n%s" "[${BOLD}3${RESET}] Uninstall"
+		printf "\n%s\n" "[${BOLD}4/q/Q${RESET}] Exit"
+		read -p "Select your command [${BOLD}1${RESET}]: " -n 1 -r USER_INPUT
+		USER_INPUT=${USER_INPUT:-1}
+		case $USER_INPUT in
+			[1]* ) install;;
+			[2]* ) update;;
+			[3]* ) uninstall;;
+			[4/q/Q]* ) goodbye
+					 exit;;
+			* )     printf "\n%s\n" "Invalid Input.";;
+		esac
+	done
 }
 
 intro() {
   BOSS_NAME=$LOGNAME
   printf "\n\a%s" "Hi ${BOLD}${FG_ORANGE}$BOSS_NAME${RESET} 👋"
   logo
+  printf "\n%s\n" "Welcome to ${BOLD}GLDF${RESET}!"
+  printf "%s\n" "................."
 }
 
 intro
