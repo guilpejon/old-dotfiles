@@ -1,6 +1,4 @@
-##############
-# DEV TOOLS
-##############
+############### DEV TOOLS ###############
 
 # install RVM
 curl -kL get.rvm.io | bash -s stable --ruby
@@ -18,12 +16,20 @@ ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/the
 awk '!/ZSH_THEME/' $HOME > ~/.temp && mv ~/.temp $HOME # remove current ZSH_THEME
 echo ZSH_THEME="'spaceship'" | sudo tee -a "$HOME/.zshrc" # add spaceship theme
 
-##############
-# RAILS
-##############
+############### RAILS ###############
 
 chmod +x $rvm_path/hooks/after_cd_bundler
 
 gem install solargraph
 gem install bundler
 gem install foreman
+
+############### FONTS ###############
+
+os_name="$(uname -s)"
+case "${os_name}" in
+  Linux*)     mkdir -p ~/.fonts && cp ~/.gdf/fonts/* ~/.fonts && fc-cache -vf ~/.fonts;;
+  Darwin*)    cp -f $HOME/.gdf/fonts/* $HOME/Library/Fonts;;
+  *)          echo "System not supported"
+              exit 1;;
+esac
