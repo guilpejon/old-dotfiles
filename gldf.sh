@@ -163,6 +163,17 @@ tmux_config() {
   rsync -avh --no-perms "$GLDF/tmux/.tmux.conf" $HOME
 }
 
+zsh_config() {
+  printf ". ~/.zsh_aliases" >> ~/.zshrc
+  rsync -avh --no-perms "$GLDF/zsh/.zsh_alises" $HOME
+
+  printf ". ~/.zplugin" >> ~/.zshrc
+  rsync -avh --no-perms "$GLDF/zsh/.zplugin" $HOME
+
+  printf ". ~/.zsh_spaceship" >> ~/.zshrc
+  rsync -avh --no-perms "$GLDF/zsh/.zsh_spaceship" $HOME
+}
+
 install() {
 	clone_gldf
 	set_alias
@@ -172,6 +183,7 @@ install() {
   ruby_config
   ctag_config
   tmux_config
+  zsh_config
   logo
 
 	printf "\t\t\t%s\n" "     is now installed!"
