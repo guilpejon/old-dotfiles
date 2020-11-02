@@ -163,13 +163,13 @@ tmux_config() {
 }
 
 zsh_config() {
-  printf ". ~/.zsh_aliases" >> ~/.zshrc
+  printf ". ~/.zsh_aliases\n" >> ~/.zshrc
   rsync -avh --no-perms "$GLDF/zsh/.zsh_aliases" $HOME
 
-  printf ". ~/.zplugin" >> ~/.zshrc
+  printf ". ~/.zplugin\n" >> ~/.zshrc
   rsync -avh --no-perms "$GLDF/zsh/.zplugin" $HOME
 
-  printf ". ~/.zsh_spaceship" >> ~/.zshrc
+  printf ". ~/.zsh_spaceship\n" >> ~/.zshrc
   rsync -avh --no-perms "$GLDF/zsh/.zsh_spaceship" $HOME
 }
 
