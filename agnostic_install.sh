@@ -1,3 +1,5 @@
+GLDF=${GLDF:-$HOME/gldf}
+
 ############### DEV TOOLS ###############
 
 # install RVM
@@ -30,8 +32,8 @@ gem install foreman
 
 os_name="$(uname -s)"
 case "${os_name}" in
-  Linux*)     mkdir -p ~/.fonts && cp ~/.gdf/fonts/* ~/.fonts && fc-cache -vf ~/.fonts;;
-  Darwin*)    cp -f $HOME/.gdf/fonts/* $HOME/Library/Fonts;;
+  Linux*)     mkdir -p ~/.fonts && cp "$GLDF/fonts/*" ~/.fonts && fc-cache -vf ~/.fonts;;
+  Darwin*)    cp -f "$GLDF/fonts/*" $HOME/Library/Fonts;;
   *)          echo "System not supported"
               exit 1;;
 esac

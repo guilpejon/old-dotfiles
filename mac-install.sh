@@ -22,6 +22,11 @@ command_exists()
   command -v "$1" >/dev/null 2>&1
 }
 
+cask_install() {
+  install_msg $1
+  brew cask install $1
+}
+
 install_or_upgrade() {
   install_msg $1
   if brew ls --versions "$1" >/dev/null; then
@@ -65,18 +70,18 @@ echo "${BOLD}[✔️ ] Installed all dev tools${RESET}"
 # APPS
 ##############
 
-brew cask install slack
-brew cask install spotify
-brew cask install google-chrome
-brew cask install notion
-brew cask install whatsapp
-brew cask install telegram
+cask_install slack
+cask_install spotify
+cask_install google-chrome
+cask_install notion
+cask_install whatsapp
+cask_install telegram
 
 ##############
 # ITERM2
 ##############
 
-brew cask install iterm2
+cask_install iterm2
 /usr/libexec/PlistBuddy -c "Add :'Custom Color Presets':'Gruvbox Dark' dict" ~/Library/Preferences/com.googlecode.iterm2.plist
 /usr/libexec/PlistBuddy -c "Merge 'iTerm2/Gruvbox Dark.itermcolors' :'Custom Color Presets':'Gruvbox Dark'" ~/Library/Preferences/com.googlecode.iterm2.plist
 
