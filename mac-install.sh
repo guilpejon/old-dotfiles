@@ -46,6 +46,8 @@ brew update
 # DEV TOOLS
 ##############
 
+sudo chown -R $(whoami) $(brew --prefix)/*
+
 install_or_upgrade imagemagick
 install_or_upgrade postgres
 install_or_upgrade node
