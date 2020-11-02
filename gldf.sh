@@ -164,7 +164,7 @@ tmux_config() {
 
 zsh_config() {
   printf ". ~/.zsh_aliases" >> ~/.zshrc
-  rsync -avh --no-perms "$GLDF/zsh/.zsh_alises" $HOME
+  rsync -avh --no-perms "$GLDF/zsh/.zsh_aliases" $HOME
 
   printf ". ~/.zplugin" >> ~/.zshrc
   rsync -avh --no-perms "$GLDF/zsh/.zplugin" $HOME

@@ -18,8 +18,6 @@ echo ZSH_THEME="'spaceship'" | sudo tee -a "$HOME/.zshrc" # add spaceship theme
 
 ############### RAILS ###############
 
-chmod +x $rvm_path/hooks/after_cd_bundler
-
 gem install solargraph
 gem install bundler
 gem install foreman
