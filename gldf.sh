@@ -140,9 +140,9 @@ vim_config() {
 }
 
 n_of_cores() {
-  if [ ${os} = "linux" ]; then
+  if [ $(os) = "linux" ]; then
     echo `nproc`
-  elif [ ${os} = "mac" ]; then
+  elif [ $(os) = "mac" ]; then
     echo `sysctl -n hw.ncpu`
   fi
 }
@@ -150,8 +150,8 @@ n_of_cores() {
 ruby_config() {
   rsync -avh --no-perms "$GLDF/ruby/gemrc" $HOME
 
-  bundler_jobs = $(n_of_cores) - 1
-  bundle config --global jobs $(bundler_jobs)
+  bundler_jobs=`expr $(n_of_cores) - 1`
+  bundle config --global jobs $bundler_jobs
 }
 
 ctag_config() {
