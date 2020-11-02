@@ -72,7 +72,7 @@ clone_gldf() {
       echo "${BOLD}[❌] Error cloning GLDF${RESET}"
     fi
   else
-    echo "${BOLD}[✔️ ] GLDF folder already exists${RESET}"
+    update
   fi
 }
 
