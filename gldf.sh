@@ -119,7 +119,7 @@ package_installation()
     exit 1
   fi
 
-  "$GLDF/agnostic-install.sh"
+  "$GLDF/agnostic_install.sh"
 }
 
 git_config() {
@@ -129,8 +129,8 @@ git_config() {
   read -p 'Git user name: ' user_name
   read -p 'Git user email: ' user_email
 
-  git config --global user.name user_name
-  git config --global user.email user_email
+  git config --global user.name $(user_name)
+  git config --global user.email $(user_email)
 }
 
 vim_config() {
@@ -151,8 +151,8 @@ n_of_cores() {
 ruby_config() {
   rsync -avh --no-perms "$GLDF/ruby/gemrc" $HOME
 
-  bundler_jobs = n_of_cores - 1
-  bundle config --global jobs $bundler_jobs
+  bundler_jobs = $(n_of_cores) - 1
+  bundle config --global jobs $(bundler_jobs)
 }
 
 ctag_config() {
@@ -186,9 +186,8 @@ install() {
   zsh_config
   logo
 
-	printf "\t\t\t%s\n" "     is now installed!"
+	printf "\t\t\t%s\n" "     is now ${BOLD}INSTALLED!${RESET}"
 	printf "\n%s" "Run 'gldf version' to check latest version."
-	printf "\n%s\n" "Run 'gldf' to configure first time setup."
 }
 
 install_confirmation() {
