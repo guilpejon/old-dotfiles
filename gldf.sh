@@ -175,8 +175,8 @@ zsh_config() {
 
 install() {
 	clone_gldf
-	set_alias
   package_installation
+	set_alias
   git_config
   vim_config
   ruby_config
