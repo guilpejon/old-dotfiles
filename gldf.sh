@@ -107,7 +107,6 @@ os() {
   echo $machine
 }
 
-# install ruby and all its dependencies
 package_installation()
 {
   if [ $(os) = "linux" ]; then

@@ -72,4 +72,12 @@ brew cask install notion
 brew cask install whatsapp
 brew cask install telegram
 
+##############
+# ITERM2
+##############
+
+brew cask install iterm2
+/usr/libexec/PlistBuddy -c "Add :'Custom Color Presets':'Gruvbox Dark' dict" ~/Library/Preferences/com.googlecode.iterm2.plist
+/usr/libexec/PlistBuddy -c "Merge 'iTerm2/Gruvbox Dark.itermcolors' :'Custom Color Presets':'Gruvbox Dark'" ~/Library/Preferences/com.googlecode.iterm2.plist
+
 echo "${BOLD}[✔️ ] Installed all apps${RESET}"
