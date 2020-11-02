@@ -110,9 +110,9 @@ os() {
 # install ruby and all its dependencies
 package_installation()
 {
-  if [ os = "linux" ]; then
+  if [ $(os) = "linux" ]; then
     "$GLDF/linux-install.sh"
-  elif [ os = "mac" ]; then
+  elif [ $(os) = "mac" ]; then
     "$GLDF/mac-install.sh"
   else
     echo "System not supported"
@@ -141,9 +141,9 @@ vim_config() {
 }
 
 n_of_cores() {
-  if [ "${os}" = "linux" ]; then
+  if [ ${os} = "linux" ]; then
     echo `nproc`
-  elif [ "${os}" = "mac" ]; then
+  elif [ ${os} = "mac" ]; then
     echo `sysctl -n hw.ncpu`
   fi
 }
