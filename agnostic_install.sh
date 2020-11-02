@@ -1,6 +1,19 @@
 GLDF=${GLDF:-$HOME/gldf}
 
+############### FONTS ###############
+
+os_name="$(uname -s)"
+case "${os_name}" in
+  Linux*)     mkdir -p ~/.fonts && cp "$GLDF/fonts/*" ~/.fonts && fc-cache -vf ~/.fonts;;
+  Darwin*)    cp -f "$GLDF/fonts/*" $HOME/Library/Fonts;;
+  *)          echo "System not supported"
+              exit 1;;
+esac
+
 ############### DEV TOOLS ###############
+
+# install RVM
+curl -sSL https://get.rvm.io | bash
 
 # install ohmyzsh
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
@@ -19,21 +32,9 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.c
 
 ############### RUBY & RAILS ###############
 
-# install RVM
-curl -sSL https://get.rvm.io | bash
 source "$HOME/.rvm/scripts/rvm"
 rvm install ruby --latest
 
 gem install solargraph
 gem install bundler
 gem install foreman
-
-############### FONTS ###############
-
-os_name="$(uname -s)"
-case "${os_name}" in
-  Linux*)     mkdir -p ~/.fonts && cp "$GLDF/fonts/*" ~/.fonts && fc-cache -vf ~/.fonts;;
-  Darwin*)    cp -f "$GLDF/fonts/*" $HOME/Library/Fonts;;
-  *)          echo "System not supported"
-              exit 1;;
-esac
