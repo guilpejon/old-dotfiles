@@ -128,8 +128,8 @@ git_config() {
   read -p 'Git user name: ' user_name
   read -p 'Git user email: ' user_email
 
-  git config --global user.name $(user_name)
-  git config --global user.email $(user_email)
+  git config --global user.name $user_name
+  git config --global user.email $user_email
 }
 
 vim_config() {
