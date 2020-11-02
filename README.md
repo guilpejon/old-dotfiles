@@ -30,8 +30,9 @@ To get started, make sure you have [curl](https://github.com/curl/curl) and [git
 ```shell
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/guilpejon/dotfiles/main/gldf.sh)"
 ```
-
 > **gldf** is installed by default in your `$HOME` directory.
+
+If you are using macOS, open iterm2 and press `COMMAND+i`. Then, go to Colors -> Color Presets and select the "Gruvbox Dark" theme. 
 
 ## Usage
 
