@@ -50,13 +50,13 @@ install_or_upgrade imagemagick
 install_or_upgrade postgres
 install_or_upgrade node
 install_or_upgrade nvm
-install_or_upgrade yarn
 install_or_upgrade gh
 install_or_upgrade zsh
 install_or_upgrade ctags
 install_or_upgrade ripgrep
 install_or_upgrade z
 install_or_upgrade vim
+# install_or_upgrade yarn
 
 install_or_upgrade redis
 ln -sfv /usr/local/opt/redis/*.plist ~/Library/LaunchAgents
