@@ -14,15 +14,6 @@
   </a>
 </p>
 
-## Demo
-
-TODO
-
-## Features
-
-TODO
-
-
 ## Installation
 
 To get started, make sure you have [curl](https://github.com/curl/curl) and [git](https://git-scm.com/downloads) installed.
