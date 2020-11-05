@@ -83,6 +83,7 @@ install_or_upgrade yarn
 
 install_msg "herou"
 sudo snap install --classic heroku
+heroku plugins:install heroku-accounts
 
 sudo apt autoremove
 

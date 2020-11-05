@@ -65,6 +65,7 @@ ln -sfv /usr/local/opt/redis/*.plist ~/Library/LaunchAgents
 
 brew tap heroku/brew
 install_or_upgrade heroku
+heroku plugins:install heroku-accounts
 
 echo "${BOLD}[✔️ ] Installed all dev tools${RESET}"
 
