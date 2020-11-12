@@ -47,7 +47,7 @@ logo() {
 
 # check if git exists
 if ! command -v git &> /dev/null; then
-	printf "%s\n\n" "${BOLD}${FG_SKYBLUE}GLDF${RESET}"
+	printf "%s\n" "${BOLD}${FG_SKYBLUE}GLDF${RESET}"
 	echo "Can't work without Git"
 	exit 1
 fi
@@ -130,6 +130,7 @@ git_config() {
 
   git config --global user.name $user_name
   git config --global user.email $user_email
+  git config --global core.editor "vim"
 }
 
 vim_config() {
