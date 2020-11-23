@@ -164,14 +164,16 @@ tmux_config() {
 }
 
 zsh_config() {
-  printf ". ~/.zsh_aliases\n" >> ~/.zshrc
-  rsync -avh --no-perms "$GLDF/zsh/.zsh_aliases" $HOME
+  mkdir -p ~/.zsh
 
-  printf ". ~/.zplugin\n" >> ~/.zshrc
-  rsync -avh --no-perms "$GLDF/zsh/.zplugin" $HOME
+  printf ". ~/.zsh/.zsh_aliases\n" >> ~/.zshrc
+  rsync -avh --no-perms "$GLDF/zsh/.zsh_aliases" "~/.zsh/"
 
-  printf ". ~/.zsh_spaceship\n" >> ~/.zshrc
-  rsync -avh --no-perms "$GLDF/zsh/.zsh_spaceship" $HOME
+  printf ". ~/.zsh/.zplugin\n" >> ~/.zshrc
+  rsync -avh --no-perms "$GLDF/zsh/.zplugin" "~/.zsh/"
+
+  printf ". ~/.zsh/.zsh_spaceship\n" >> ~/.zshrc
+  rsync -avh --no-perms "$GLDF/zsh/.zsh_spaceship" "~/.zsh/"
 }
 
 install() {
