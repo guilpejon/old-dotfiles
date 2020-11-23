@@ -38,22 +38,22 @@ EOF
 }
 
 reset_colors() {
-  set_color 0 0 0
+  set_color feffff 272727 0
 }
 
-pc() {
+function pc() {
   set_color ffffff 330000 0
   heroku run rails console --remote heroku
   reset_colors
 }
 
-sc() {
+function sc() {
   set_color ffffff 032c00 0
   heroku run rails console --remote staging
   reset_colors
 }
 
-dc() {
+function dc() {
   set_color ffffff 03253a 0
   heroku run rails console --remote demo
   reset_colors
