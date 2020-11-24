@@ -32,7 +32,7 @@ install_or_upgrade() {
 
 sudo apt-get update -y
 
-curl -sL https://deb.nodesource.com/setup_13.x | sudo -E bash -
+curl -sL https://deb.nodesource.com/setup_15.x | sudo -E bash -
 install_or_upgrade nodejs
 
 install_or_upgrade redis-server
