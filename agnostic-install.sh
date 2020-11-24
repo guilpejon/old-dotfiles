@@ -30,6 +30,8 @@ echo ZSH_THEME="'spaceship'" | sudo tee -a "$HOME/.zshrc" # add spaceship theme
 
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 
+npm install -g tldr
+
 ############### RUBY & RAILS ###############
 
 source "$HOME/.rvm/scripts/rvm"

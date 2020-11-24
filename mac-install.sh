@@ -59,6 +59,7 @@ install_or_upgrade ripgrep
 install_or_upgrade z
 install_or_upgrade vim
 # install_or_upgrade yarn
+install_or_upgrade 1password
 
 install_or_upgrade redis
 ln -sfv /usr/local/opt/redis/*.plist ~/Library/LaunchAgents
