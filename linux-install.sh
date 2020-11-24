@@ -30,6 +30,11 @@ install_or_upgrade() {
   sudo apt install "$1" "$2" -y
 }
 
+snapd_install_or_upgrade() {
+  install_msg $1
+  sudo snap install "$1" "$2" -y
+}
+
 sudo apt-get update -y
 
 curl -sL https://deb.nodesource.com/setup_15.x | sudo -E bash -
@@ -69,12 +74,14 @@ install_or_upgrade postgresql-contrib
 install_or_upgrade libpq-dev
 install_or_upgrade libc6-dev
 install_or_upgrade snapd
-install_or_upgrade gh
 install_or_upgrade zsh
 install_or_upgrade ctags
 install_or_upgrade tmux
 install_or_upgrade terminator
 install_or_upgrade ripgrep
+
+# gh installation
+snapd_install_or_upgrade gh --edge
 
 # 1 password
 sudo apt-key --keyring /usr/share/keyrings/1password.gpg adv --keyserver keyserver.ubuntu.com --recv-keys 3FEF9748469ADBE15DA7CA80AC2D62742012EA22
@@ -86,8 +93,7 @@ echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/source
 sudo apt update
 install_or_upgrade yarn
 
-install_msg "herou"
-sudo snap install --classic heroku
+snapd_install_or_upgrade heroku --classic
 heroku plugins:install heroku-accounts
 
 sudo apt autoremove
