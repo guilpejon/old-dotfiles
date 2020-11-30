@@ -20,6 +20,9 @@ endif
 
 call plug#begin('~/.vim/plugged')
 
+" show git diff in the sign column
+Plug 'airblade/vim-gitgutter'
+
 " underline word under cursor
 Plug 'itchyny/vim-cursorword'
 

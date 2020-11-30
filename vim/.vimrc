@@ -77,9 +77,13 @@ set gcr=a:blinkon0
 
 " No sounds
 set visualbell
+"
+" disable bell and blinking screen at end of files
+set belloff=all
 
-" Reload files changed outside vim
-set autoread
+" Check for file changes and autoreload it
+" https://stackoverflow.com/questions/2157914/can-vim-monitor-realtime-changes-to-a-file/48296697#48296697
+set autoread | au CursorHold * checktime | call feedkeys("lh")
 
 " Show long lines
 set display+=lastline
@@ -121,14 +125,13 @@ set noswapfile
 set nobackup
 set nowb
 
-" disable bell and blinking screen at end of files
-set belloff=all
-
 " Set .axlsx as ruby files
 autocmd BufNewFile,BufRead *.xlsx.axlsx set syntax=ruby
 
 " Automatically removes all trailing whitespace
 autocmd BufWritePre * %s/\s\+$//e
+
+autocmd FileType python,javascript,ruby,c,cpp,java,php autocmd BufWritePre <buffer> :%s/\s\+$//e
 
 " Fix css syntax highlight for words with hyphen
 autocmd FileType scss set iskeyword+=-
@@ -184,6 +187,7 @@ set wildignore+=*vim/backups*
 set wildignore+=*sass-cache*
 set wildignore+=*DS_Store*
 set wildignore+=vendor/rails/**
+set wildignore+=node_modules/**
 set wildignore+=vendor/cache/**
 set wildignore+=*.gem
 set wildignore+=log/**
@@ -567,6 +571,10 @@ command! -bang -nargs=* Rg
 command! -bang -nargs=? -complete=dir Files
   \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
 
+" ===================== gitgutter =====================
+
+let g:gitgutter_max_signs = 1000
+
 " ====================== airline ======================
 
 " Airline theme
@@ -752,111 +760,3 @@ function! DoPrettyXML()
   exe "set ft=" . l:origft
 endfunction
 command! PrettyXML call DoPrettyXML()
-
-" =========================================================================== "
-" ===                            LEGACY                                   === "
-" =========================================================================== "
-
-"" ================ Custom Settings from https://github.com/jordanhudgens/vim-settings/blob/master/vim-settings ========================
-
-"" Window pane resizing
-"nnoremap <silent> <Leader>[ :exe "vertical resize " . (winwidth(0) * 3/2)<CR>
-"nnoremap <silent> <Leader>] :exe "vertical resize " . (winwidth(0) * 2/3)<CR>
-"nnoremap <silent> <Leader>{ :exe "resize " . (winheight(0) * 3/2)<CR>
-"nnoremap <silent> <Leader>} :exe "resize " . (winheight(0) * 2/3)<CR>
-
-"" ===== Seeing Is Believing =====
-"" " Assumes you have a Ruby with SiB available in the PATH
-"" " If it doesn't work, you may need to `gem install seeing_is_believing -v
-"" 3.0.0.beta.6`
-"" " ...yeah, current release is a beta, which won't auto-install
-""
-"" " Annotate every line
-""
-"" nmap <leader>b :%!seeing_is_believing --timeout 12 --line-length 500 --number-of-captures 300 --alignment-strategy chunk<CR>;
-""
-""  " Annotate marked lines
-""
-"" nmap <leader>n :%.!seeing_is_believing --timeout 12 --line-length 500 --number-of-captures 300 --alignment-strategy chunk --xmpfilter-style<CR>;
-""
-""  " Remove annotations
-""
-"" nmap <leader>c :%.!seeing_is_believing --clean<CR>;
-""
-""  " Mark the current line for annotation
-""
-"nmap <leader>m A # => <Esc>
-""
-""  " Mark the highlighted lines for annotation
-""
-"vmap <leader>m :norm A # => <Esc>
-
-"" Plugin call to ctrl p for fuzzy file search
-""
-"autocmd StdinReadPre * let s:std_in=1
-"autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-
-"" ================ NOT WORKING =====================
-"" Use Alt- numbers to pick the tab you want
-"" map <silent> <A-1> :tabn 1<cr>
-"" map <silent> <A-2> :tabn 2<cr>
-"" map <silent> <A-3> :tabn 3<cr>
-"" map <silent> <A-4> :tabn 4<cr>
-"" map <silent> <A-5> :tabn 5<cr>
-"" map <silent> <A-6> :tabn 6<cr>
-"" map <silent> <A-7> :tabn 7<cr>
-"" map <silent> <A-8> :tabn 8<cr>
-"" map <silent> <A-9> :tabn 9<cr>
-
-"" ================ Fugitive ==========================
-
-"" Enable gitlab private repos for fugitive plugin
-"let g:fugitive_gitlab_domains = ['http://gitlab', 'http://gitlab.com']
-
-"" Always use vertical diffs
-"set diffopt+=vertical
-
-"" For fugitive.git, dp means :diffput. Define dg to mean :diffget
-"nnoremap <silent> ,dg :diffget<CR>
-"nnoremap <silent> ,dp :diffput<CR>
-
-"" ================ Rails =============================
-
-"" Better key maps for switching between controller and view
-"nnoremap ,vv :Rview<cr>
-"nnoremap ,cc :Rcontroller<cr>
-
-"" ================ indentLine =====================
-
-"let g:indentLine_setColors = 1
-"let g:indentLine_conceallevel = 0
-
-"" ================= Flutter =======================
-
-"" Enable Flutter menu
-"" call FlutterMenu()
-
-"nnoremap <leader>fa :FlutterRun<cr>
-"nnoremap <leader>fq :FlutterQuit<cr>
-"nnoremap <leader>fr :FlutterHotReload<cr>
-"nnoremap <leader>fR :FlutterHotRestart<cr>
-"nnoremap <leader>fD :FlutterVisualDebug<cr>
-
-"" ================ Unclassified ===================
-
-"nnoremap <leader>. :CtrlPTag<cr>
-
-""avoiding annoying CSApprox warning message
-"let g:CSApprox_verbose_level = 0
-
-""statusline setup
-"set statusline=%f       "tail of the filename
-
-""RVM
-"set statusline+=%{exists('g:loaded_rvm')?rvm#statusline():''}
-
-"set statusline+=%=      "left/right separator
-"set statusline+=%c,     "cursor column
-"set statusline+=%l/%L   "cursor line/total lines
-"set statusline+=\ %P    "percent through file
-"set laststatus=2
