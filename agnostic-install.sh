@@ -2,13 +2,21 @@ GLDF=${GLDF:-$HOME/gldf}
 
 ############### FONTS ###############
 
-os_name="$(uname -s)"
-case "${os_name}" in
-  Linux*)     mkdir -p ~/.fonts && cp "$GLDF/fonts/*" ~/.fonts && fc-cache -vf ~/.fonts;;
-  Darwin*)    cp -f "$GLDF/fonts/*" $HOME/Library/Fonts;;
-  *)          echo "System not supported"
-              exit 1;;
-esac
+if [[ $(uname) == 'Darwin' ]]; then
+  # MacOS
+  font_dir="$HOME/Library/Fonts"
+else
+  # Linux
+  font_dir="$HOME/.fonts"
+  mkdir -p $font_dir
+fi
+
+rsync -vr fonts/ "$font_dir"
+
+# Reset font cache on Linux
+if [[ -n $(which fc-cache) ]]; then
+  fc-cache -f $font_dir
+fi
 
 ############### DEV TOOLS ###############
 
