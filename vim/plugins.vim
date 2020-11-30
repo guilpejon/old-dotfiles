@@ -20,6 +20,9 @@ endif
 
 call plug#begin('~/.vim/plugged')
 
+" shows how many times a search pattern occurs in the current buffer.
+Plug 'vim-searchindex'
+
 " show git diff in the sign column
 Plug 'airblade/vim-gitgutter'
 
