@@ -47,11 +47,6 @@ logo() {
 
 # check if git exists
 type git >/dev/null 2>&1 || { echo >&2 "Can't work without Git"; exit 1; }
-# if ! program_is_installed git; then
-# 	printf "%s\n" "${BOLD}${FG_SKYBLUE}GLDF${RESET}"
-# 	echo "Can't work without Git"
-# 	exit 1
-# fi
 
 goodbye() {
   printf "\a\n\n%s\n" "${BOLD}Thanks for using GLDF 🖖.${RESET}"
