@@ -30,7 +30,7 @@ Plug 'junegunn/goyo.vim'
 Plug 'TaDaa/vimade'
 
 " shows how many times a search pattern occurs in the current buffer.
-Plug 'vim-searchindex'
+Plug 'google/vim-searchindex'
 
 " show git diff in the sign column
 Plug 'airblade/vim-gitgutter'
