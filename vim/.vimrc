@@ -487,6 +487,8 @@ au BufNewFile,BufRead *.rb,*.erb
 " ====================== Emmet ======================
 
 let g:user_emmet_leader_key=','
+let g:user_emmet_install_global = 0
+autocmd FileType html,css EmmetInstall
 
 " ====================== FZF ======================
 
@@ -729,6 +731,13 @@ let g:webdevicons_enable_airline_statusline = 1
 " ================= vimade ============================
 
 let g:vimade = { "fadelevel": 0.7 }
+
+" ================= vimade ============================
+
+let g:floaterm_keymap_new    = '<F9>'
+let g:floaterm_keymap_next   = '<F10>'
+" let g:floaterm_keymap_prev   = '<F11>'
+let g:floaterm_keymap_toggle = '<F12>'
 
 " =========================================================================== "
 " ===                            HELPERS                                  === "

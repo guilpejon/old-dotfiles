@@ -20,6 +20,9 @@ endif
 
 call plug#begin('~/.vim/plugged')
 
+" floating windows
+Plug 'voldikss/vim-floaterm'
+
 " distraction-free writing
 Plug 'junegunn/goyo.vim'
 
