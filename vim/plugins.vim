@@ -20,6 +20,9 @@ endif
 
 call plug#begin('~/.vim/plugged')
 
+" distraction-free writing
+Plug 'junegunn/goyo.vim'
+
 " fades inactive buffers
 Plug 'TaDaa/vimade'
 
