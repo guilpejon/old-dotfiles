@@ -31,7 +31,7 @@ else
   RUL=$(tput rmul)
 fi
 
-logo() {
+print_logo() {
   printf "${BOLD}${FG_SKYBLUE}%s\n" ""
   printf "%s\n" "                         _ .-') _               "
   printf "%s\n" "                        ( (  OO) )              "
@@ -172,6 +172,26 @@ zsh_config() {
   rsync -avh --no-perms "$GLDF/zsh/.zsh_spaceship" "$HOME/.zsh/"
 }
 
+vim_installation() {
+	clone_gldf
+	set_alias
+
+  if [ $(os) = "linux" ]; then
+    sudo apt install vim vim-gtk
+  elif [ $(os) = "mac" ]; then
+    brew install vim
+  else
+    echo "System not supported"
+    exit 1
+  fi
+
+  vim_config
+  print_logo
+
+	printf "\t\t\t%s\n" "     VIM configuration ${BOLD}COMPLETE!${RESET}"
+	# printf "\n%s" "Run 'gldf version' to check latest version."
+}
+
 install() {
 	clone_gldf
   package_installation
@@ -182,10 +202,10 @@ install() {
   ctag_config
   tmux_config
   zsh_config
-  logo
+  print_logo
 
 	printf "\t\t\t%s\n" "     is now ${BOLD}INSTALLED!${RESET}"
-	printf "\n%s" "Run 'gldf version' to check latest version."
+	# printf "\n%s" "Run 'gldf version' to check latest version."
 }
 
 install_confirmation() {
@@ -215,17 +235,20 @@ uninstall() {
 menu() {
 	while :
 	do
-		printf "\n%s" "[${BOLD}1${RESET}] Install"
-		printf "\n%s" "[${BOLD}2${RESET}] Update"
-		printf "\n%s" "[${BOLD}3${RESET}] Uninstall"
-		printf "\n%s\n" "[${BOLD}4/q/Q${RESET}] Exit"
+		printf "\n%s" "[${BOLD}1${RESET}] Set up a new computer"
+		printf "\n%s" "[${BOLD}2${RESET}] Install VIM"
+		printf "\n%s" "[${BOLD}3${RESET}] Update GLDF"
+		printf "\n%s" "[${BOLD}4${RESET}] Uninstall"
+		printf "\n%s\n" "[${BOLD}5/q/Q${RESET}] Exit"
 		read -p "Select your command [${BOLD}1${RESET}]: " -n 1 -r USER_INPUT
-		USER_INPUT=${USER_INPUT:-1}
+    # set default input
+		# USER_INPUT=${USER_INPUT:-1}
 		case $USER_INPUT in
 			[1]* ) install_confirmation;;
-			[2]* ) update;;
-			[3]* ) uninstall;;
-			[4/q/Q]* ) goodbye
+			[2]* ) vim_installation;;
+			[3]* ) update;;
+			[4]* ) uninstall;;
+			[5/q/Q]* ) goodbye
 					 exit;;
 			* )     printf "\n%s\n" "Invalid Input.";;
 		esac
@@ -235,7 +258,7 @@ menu() {
 intro() {
   BOSS_NAME=$LOGNAME
   printf "\n\a%s" "Hi ${BOLD}${FG_ORANGE}$BOSS_NAME${RESET} 👋"
-  logo
+  print_logo
   printf "\n%s\n" "Welcome to ${BOLD}GLDF${RESET}!"
   printf "%s\n" "................."
 }
