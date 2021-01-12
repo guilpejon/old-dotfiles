@@ -120,6 +120,7 @@ package_installation()
 git_config() {
   rsync -avh --no-perms "$GLDF/git/.gitconfig" $HOME
   rsync -avh --no-perms "$GLDF/git/.gitignore" $HOME
+  rsync -avh --no-perms "$GLDF/git/.gitmessage" $HOME
 
   read -p 'Git user name: ' user_name
   read -p 'Git user email: ' user_email
@@ -172,7 +173,7 @@ zsh_config() {
   rsync -avh --no-perms "$GLDF/zsh/.zsh_spaceship" "$HOME/.zsh/"
 }
 
-vim_installation() {
+install_vim() {
 	clone_gldf
 	set_alias
 
@@ -245,7 +246,7 @@ menu() {
 		# USER_INPUT=${USER_INPUT:-1}
 		case $USER_INPUT in
 			[1]* ) install_confirmation;;
-			[2]* ) vim_installation;;
+			[2]* ) install_vim;;
 			[3]* ) update;;
 			[4]* ) uninstall;;
 			[5/q/Q]* ) goodbye
