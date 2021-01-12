@@ -125,6 +125,9 @@ git_config() {
   read -p 'Git user name: ' user_name
   read -p 'Git user email: ' user_email
 
+  # opens VIM in line 14 of commit template using insert mode
+  git config --global core.editor 'vim +14 +startinsert'
+
   git config --global user.name $user_name
   git config --global user.email $user_email
   git config --global core.editor "vim"
