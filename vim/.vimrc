@@ -748,7 +748,7 @@ let g:webdevicons_enable_airline_statusline = 1
 
 let g:vimade = { "fadelevel": 0.7 }
 
-" ================= vimade ============================
+" ================= floaterm ==========================
 
 let g:floaterm_keymap_new    = '<F9>'
 let g:floaterm_keymap_next   = '<F10>'
