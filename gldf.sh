@@ -138,9 +138,10 @@ git_config() {
 }
 
 vim_config() {
+  mkdir -p $HOME/.vim
   ln -nfs "$GLDF/vim/.vimrc" $HOME
-  ln -nfs "$GLDF/vim/coc-settings.json" "$HOME/.vim"
-  ln -nfs "$GLDF/vim/plugins.vim" "$HOME/.vim"
+  ln -nfs "$GLDF/vim/coc-settings.json" "$HOME/.vim/"
+  ln -nfs "$GLDF/vim/plugins.vim" "$HOME/.vim/"
 
   # rsync -avh --no-perms "$GLDF/vim/.vimrc" $HOME
   # rsync -avh --no-perms "$GLDF/vim/coc-settings.json" "$HOME/.vim"
