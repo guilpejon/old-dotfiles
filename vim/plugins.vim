@@ -20,9 +20,6 @@ endif
 
 call plug#begin('~/.vim/plugged')
 
-" automatically resizes windows
-Plug 'camspiers/lens.vim'
-
 " floating windows
 Plug 'voldikss/vim-floaterm'
 
