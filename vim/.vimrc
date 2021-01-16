@@ -750,6 +750,7 @@ let g:vimade = { "fadelevel": 0.7 }
 
 " ================= floaterm ==========================
 
+let g:floaterm_autoclose     = 1
 let g:floaterm_keymap_new    = '<F9>'
 let g:floaterm_keymap_next   = '<F10>'
 " let g:floaterm_keymap_prev   = '<F11>'
