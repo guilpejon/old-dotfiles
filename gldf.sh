@@ -118,9 +118,13 @@ package_installation()
 }
 
 git_config() {
-  rsync -avh --no-perms "$GLDF/git/.gitconfig" $HOME
-  rsync -avh --no-perms "$GLDF/git/.gitignore" $HOME
-  rsync -avh --no-perms "$GLDF/git/.gitmessage" $HOME
+  ln -nfs "$GLDF/git/.gitconfig" $HOME
+  ln -nfs "$GLDF/git/.gitignore" $HOME
+  ln -nfs "$GLDF/git/.gitmessage" $HOME
+
+  # rsync -avh --no-perms "$GLDF/git/.gitconfig" $HOME
+  # rsync -avh --no-perms "$GLDF/git/.gitignore" $HOME
+  # rsync -avh --no-perms "$GLDF/git/.gitmessage" $HOME
 
   read -p 'Git user name: ' user_name
   read -p 'Git user email: ' user_email
@@ -134,9 +138,13 @@ git_config() {
 }
 
 vim_config() {
-  rsync -avh --no-perms "$GLDF/vim/.vimrc" $HOME
-  rsync -avh --no-perms "$GLDF/vim/coc-settings.json" "$HOME/.vim"
-  rsync -avh --no-perms "$GLDF/vim/plugins.vim" "$HOME/.vim"
+  ln -nfs "$GLDF/vim/.vimrc" $HOME
+  ln -nfs "$GLDF/vim/coc-settings.json" "$HOME/.vim"
+  ln -nfs "$GLDF/vim/plugins.vim" "$HOME/.vim"
+
+  # rsync -avh --no-perms "$GLDF/vim/.vimrc" $HOME
+  # rsync -avh --no-perms "$GLDF/vim/coc-settings.json" "$HOME/.vim"
+  # rsync -avh --no-perms "$GLDF/vim/plugins.vim" "$HOME/.vim"
   vim --noplugin -N \"+set hidden\" \"+syntax on\" +PlugClean +PlugInstall! +PlugUpdate +qall
 }
 
@@ -149,31 +157,37 @@ n_of_cores() {
 }
 
 ruby_config() {
-  rsync -avh --no-perms "$GLDF/ruby/gemrc" $HOME
+  ln -nfs "$GLDF/ruby/gemrc" $HOME
+  # rsync -avh --no-perms "$GLDF/ruby/gemrc" $HOME
 
   bundler_jobs=`expr $(n_of_cores) - 1`
   bundle config --global jobs $bundler_jobs
 }
 
 ctag_config() {
-  rsync -avh --no-perms "$GLDF/ctags/.ctags" $HOME
+  ln -nfs "$GLDF/ctags/.ctags" $HOME
+  # rsync -avh --no-perms "$GLDF/ctags/.ctags" $HOME
 }
 
 tmux_config() {
-  rsync -avh --no-perms "$GLDF/tmux/.tmux.conf" $HOME
+  ln -nfs "$GLDF/tmux/.tmux.conf" $HOME
+  # rsync -avh --no-perms "$GLDF/tmux/.tmux.conf" $HOME
 }
 
 zsh_config() {
   mkdir -p "$HOME/.zsh"
 
   printf ". ~/.zsh/.zsh_aliases\n" >> ~/.zshrc
-  rsync -avh --no-perms "$GLDF/zsh/.zsh_aliases" "$HOME/.zsh/"
+  ln -nfs "$GLDF/zsh/.zsh_aliases" "$HOME/.zsh/"
+  # rsync -avh --no-perms "$GLDF/zsh/.zsh_aliases" "$HOME/.zsh/"
 
   printf ". ~/.zsh/.zplugin\n" >> ~/.zshrc
-  rsync -avh --no-perms "$GLDF/zsh/.zplugin" "$HOME/.zsh/"
+  ln -nfs "$GLDF/zsh/.zplugin" "$HOME/.zsh/"
+  # rsync -avh --no-perms "$GLDF/zsh/.zplugin" "$HOME/.zsh/"
 
   printf ". ~/.zsh/.zsh_spaceship\n" >> ~/.zshrc
-  rsync -avh --no-perms "$GLDF/zsh/.zsh_spaceship" "$HOME/.zsh/"
+  ln -nfs "$GLDF/zsh/.zsh_spaceship" "$HOME/.zsh/"
+  # rsync -avh --no-perms "$GLDF/zsh/.zsh_spaceship" "$HOME/.zsh/"
 }
 
 install_vim() {
