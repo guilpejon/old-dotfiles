@@ -23,9 +23,6 @@ call plug#begin('~/.vim/plugged')
 " floating windows
 Plug 'voldikss/vim-floaterm'
 
-" fades inactive buffers
-Plug 'TaDaa/vimade'
-
 " shows how many times a search pattern occurs in the current buffer.
 Plug 'google/vim-searchindex'
 
