@@ -109,10 +109,11 @@ Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}} " Language Server sup
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 
 " Colorscheme
-Plug 'guilpejon/gruvbox'
+Plug 'morhetz/gruvbox'
 
 " Status bar at the bottom of the window
 Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 " For Facts, Ruby functions, and custom providers
 Plug 'vim-ruby/vim-ruby'

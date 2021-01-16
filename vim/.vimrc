@@ -596,7 +596,7 @@ let g:gitgutter_max_signs = 1000
 " ====================== airline ======================
 
 " Airline theme
-let g:airline_theme='gruvbox'
+let g:airline_theme='minimalist'
 
 " Extensions
 let g:airline#extensions#ale#enabled = 1
