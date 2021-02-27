@@ -87,10 +87,18 @@
 	# Show the user email for the current repository.
 	whoami = config user.email
 
+  # Interactive git fixup
+  fixup = "!git log -n 50 --pretty=format:'%h %s' --no-merges | fzf | cut -c -7 | xargs -o git commit --fixup"
+
 [apply]
 
 	# Detect whitespace errors when applying a patch.
 	whitespace = fix
+
+[rebase]
+
+  # Always autosquash when rebasing
+  autosquash = true
 
 [branch]
 
