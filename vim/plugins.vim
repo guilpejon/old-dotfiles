@@ -133,4 +133,7 @@ Plug 'alvan/vim-closetag'
 " " Syntax and style checker for Python
 " Plug 'nvie/vim-flake8'
 
+" Easily create tables
+Plug 'dhruvasagar/vim-table-mode'
+
 call plug#end()
