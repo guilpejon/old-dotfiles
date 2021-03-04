@@ -118,19 +118,15 @@ package_installation()
 }
 
 git_config() {
-  ln -nfs "$GLDF/git/.gitconfig" $HOME
   ln -nfs "$GLDF/git/.gitignore" $HOME
   ln -nfs "$GLDF/git/.gitmessage" $HOME
 
-  # rsync -avh --no-perms "$GLDF/git/.gitconfig" $HOME
+  rsync -avh --no-perms "$GLDF/git/.gitconfig" $HOME
   # rsync -avh --no-perms "$GLDF/git/.gitignore" $HOME
   # rsync -avh --no-perms "$GLDF/git/.gitmessage" $HOME
 
   read -p 'Git user name: ' user_name
   read -p 'Git user email: ' user_email
-
-  # opens VIM in line 14 of commit template using insert mode
-  git config --global core.editor 'vim +14 +startinsert'
 
   git config --global user.name $user_name
   git config --global user.email $user_email
@@ -139,6 +135,7 @@ git_config() {
 
 vim_config() {
   mkdir -p $HOME/.vim
+
   ln -nfs "$GLDF/vim/.vimrc" $HOME
   ln -nfs "$GLDF/vim/coc-settings.json" "$HOME/.vim/"
   ln -nfs "$GLDF/vim/plugins.vim" "$HOME/.vim/"

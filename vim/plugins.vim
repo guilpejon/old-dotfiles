@@ -23,12 +23,6 @@ call plug#begin('~/.vim/plugged')
 " floating windows
 Plug 'voldikss/vim-floaterm'
 
-" distraction-free writing
-Plug 'junegunn/goyo.vim'
-
-" fades inactive buffers
-Plug 'TaDaa/vimade'
-
 " shows how many times a search pattern occurs in the current buffer.
 Plug 'google/vim-searchindex'
 
@@ -115,10 +109,11 @@ Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}} " Language Server sup
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 
 " Colorscheme
-Plug 'guilpejon/gruvbox'
+Plug 'morhetz/gruvbox'
 
 " Status bar at the bottom of the window
 Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 " For Facts, Ruby functions, and custom providers
 Plug 'vim-ruby/vim-ruby'
@@ -137,5 +132,8 @@ Plug 'alvan/vim-closetag'
 
 " " Syntax and style checker for Python
 " Plug 'nvie/vim-flake8'
+
+" Easily create tables
+Plug 'dhruvasagar/vim-table-mode'
 
 call plug#end()
