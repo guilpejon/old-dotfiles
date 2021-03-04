@@ -178,6 +178,10 @@ tmux_config() {
 zsh_config() {
   mkdir -p "$HOME/.zsh"
 
+  printf ". ~/.zsh/.zsh_envs\n" >> ~/.zshrc
+  ln -nfs "$GLDF/zsh/.zsh_envs" "$HOME/.zsh/"
+  # rsync -avh --no-perms "$GLDF/zsh/.zsh_envs" "$HOME/.zsh/"
+
   printf ". ~/.zsh/.zsh_aliases\n" >> ~/.zshrc
   ln -nfs "$GLDF/zsh/.zsh_aliases" "$HOME/.zsh/"
   # rsync -avh --no-perms "$GLDF/zsh/.zsh_aliases" "$HOME/.zsh/"
