@@ -37,6 +37,9 @@ endif
 " allow Vim to manage multiple buffers effectively
 set hidden
 
+" Don't auto-wrap existing long lines
+set fo+=l
+
 " Enable extended % matching e.g. if/elsif/else/end
 runtime macros/matchit.vim
 

@@ -20,6 +20,9 @@ endif
 
 call plug#begin('~/.vim/plugged')
 
+" pug syntax highlighting
+Plug 'digitaltoad/vim-pug'
+
 " floating windows
 Plug 'voldikss/vim-floaterm'
 
