@@ -60,10 +60,10 @@ EOF
   }
 fi
 
-alias deploy='git checkout master && git pull origin master && git push heroku master --no-verify'
-alias sdeploy='git checkout release && git pull origin release && git push staging release:master --no-verify'
+alias deploy='git checkout main && git pull origin main && git push heroku main --no-verify'
+alias sdeploy='git checkout release && git pull origin release && git push staging release:main --no-verify'
 
-alias upall='git checkout master && git pull origin master; git checkout develop && git pull origin develop; git checkout release && git pull origin release; git checkout develop-prodops && git pull origin develop-prodops; git checkout develop-product && git pull origin develop-product; git checkout develop-bugs && git pull origin develop-bugs; git checkout develop-imp && git pull origin develop-imp'
+alias upall='git checkout main && git pull origin main; git checkout develop && git pull origin develop; git checkout release && git pull origin release; git checkout develop-prodops && git pull origin develop-prodops; git checkout develop-product && git pull origin develop-product; git checkout develop-bugs && git pull origin develop-bugs; git checkout develop-imp && git pull origin develop-imp'
 
 # ruby
 alias rdm='rake db:migrate'
