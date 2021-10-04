@@ -71,7 +71,7 @@ echo "${BOLD}[✔️ ] Installed all dev tools${RESET}"
 
 install_or_upgrade slack
 install_or_upgrade spotify
-install_or_upgrade google-chrome
+# install_or_upgrade google-chrome
 install_or_upgrade notion
 install_or_upgrade whatsapp
 install_or_upgrade telegram
