@@ -55,6 +55,7 @@ install_or_upgrade ripgrep
 install_or_upgrade z
 install_or_upgrade vim
 install_or_upgrade asdf
+echo -e "\n. $(brew --prefix asdf)/asdf.sh" >> ~/.zshrc
 
 install_or_upgrade redis
 ln -sfv /usr/local/opt/redis/*.plist ~/Library/LaunchAgents
