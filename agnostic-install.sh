@@ -23,6 +23,9 @@ fi
 # install RVM
 curl -sSL https://get.rvm.io | bash
 
+# install asdf plugins
+asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
+
 # install ohmyzsh
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
