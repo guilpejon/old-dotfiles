@@ -48,6 +48,7 @@ brew update
 
 sudo chown -R $(whoami) $(brew --prefix)/*
 
+install_or_upgrade cask
 install_or_upgrade imagemagick
 install_or_upgrade postgres
 install_or_upgrade node
