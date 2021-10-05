@@ -56,7 +56,7 @@ install_or_upgrade z
 install_or_upgrade vim
 
 install_or_upgrade asdf
-echo -e "\n. $(brew --prefix asdf)/asdf.sh" >> ~/.zshrc
+echo -e "\n. $(brew --prefix asdf)/libexec/asdf.sh" >> ~/.zshrc
 brew install gpg
 brew install gawk
 
