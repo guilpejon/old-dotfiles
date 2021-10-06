@@ -54,6 +54,7 @@ install_or_upgrade ctags
 install_or_upgrade ripgrep
 install_or_upgrade z
 install_or_upgrade vim
+install_or_upgrade wireguard-tools
 
 install_or_upgrade asdf
 echo -e "\n. $(brew --prefix asdf)/libexec/asdf.sh" >> ~/.zshrc
