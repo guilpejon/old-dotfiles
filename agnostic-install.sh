@@ -25,6 +25,7 @@ curl -sSL https://get.rvm.io | bash
 
 # install asdf plugins
 asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
+asdf plugin-add golang https://github.com/kennyp/asdf-golang.git
 
 # install ohmyzsh
 sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
