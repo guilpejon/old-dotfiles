@@ -109,7 +109,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 
 " Completion framework and language server client
-Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}} " Language Server support
+Plug 'neoclide/coc.nvim', {'branch': 'release', 'do': 'yarn install --frozen-lockfile'}
 
 " Open markdown preview on web when editing a .md file
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
