@@ -33,7 +33,7 @@ Plug 'google/vim-searchindex'
 Plug 'airblade/vim-gitgutter'
 
 " go lang support
-Plug 'airblade/vim-go'
+Plug 'fatih/vim-go'
 
 " underline word under cursor
 Plug 'itchyny/vim-cursorword'
