@@ -32,6 +32,9 @@ Plug 'google/vim-searchindex'
 " show git diff in the sign column
 Plug 'airblade/vim-gitgutter'
 
+" go lang support
+Plug 'airblade/vim-go'
+
 " underline word under cursor
 Plug 'itchyny/vim-cursorword'
 
