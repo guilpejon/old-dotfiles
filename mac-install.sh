@@ -44,7 +44,8 @@ brew update
 sudo chown -R $(whoami) $(brew --prefix)/*
 
 install_or_upgrade cask
-install_or_upgrade tmusk
+install_or_upgrade tmux
+install_or_upgrade overmind
 install_or_upgrade imagemagick
 install_or_upgrade node
 install_or_upgrade nvm
