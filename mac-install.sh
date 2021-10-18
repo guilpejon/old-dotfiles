@@ -44,8 +44,8 @@ brew update
 sudo chown -R $(whoami) $(brew --prefix)/*
 
 install_or_upgrade cask
+install_or_upgrade tmusk
 install_or_upgrade imagemagick
-install_or_upgrade postgres
 install_or_upgrade node
 install_or_upgrade nvm
 install_or_upgrade gh
@@ -67,6 +67,10 @@ ln -sfv /usr/local/opt/redis/*.plist ~/Library/LaunchAgents
 brew tap heroku/brew
 install_or_upgrade heroku
 heroku plugins:install heroku-accounts
+
+install_or_upgrade postgres
+# brew services start postgresql
+# /usr/local/opt/postgres/bin/createuser -s postgres
 
 echo "${BOLD}[✔️ ] Installed all dev tools${RESET}"
 
