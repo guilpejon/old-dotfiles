@@ -153,6 +153,9 @@ set display=lastline
 set number
 set numberwidth=5
 
+" Automatically removes all trailing whitespace
+autocmd BufWritePre * %s/\s\+$//e
+
 " Enable theming support
 if (has("termguicolors"))
  set termguicolors
@@ -284,6 +287,7 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 " Toggle
 nnoremap <silent> <C-b> :NERDTreeToggle<CR>
 " nnoremap <silent> <Leader>p :NERDTreeToggle<CR>
+nnoremap <silent> <Leader>v :NERDTreeFind<CR>
 
 """""""""""""""""""""""""""""""""junegunn/fzf""""""""""""""""""""""""""""""
 " CTRL+P to search
