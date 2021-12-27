@@ -7,6 +7,9 @@ call plug#begin("~/.vim/plugged")
 " Theme
 Plug 'dracula/vim'
 
+" Auto tag
+Plug 'craigemery/vim-autotag'
+
 " Auto format code
 Plug 'sbdchd/neoformat'
 
@@ -331,3 +334,8 @@ let g:mkdp_auto_start = 0
 " Shortcuts to start and stop markdown previewing
 nnoremap <silent> <M-m> :<C-U>MarkdownPreview<CR>
 nnoremap <silent> <M-S-m> :<C-U>MarkdownPreviewStop<CR>
+
+"""""""""""""""""""""""""""craigemery/vim-autotag"""""""""""""""""""""""""
+nnoremap <leader>ct :silent ! ctags -R --languages=ruby --exclude={.git,log,node_modules,vendor,db} -f .tags<cr>
+let g:autotagTagsFile="tags"
+set tags+=.tags
