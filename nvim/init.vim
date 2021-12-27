@@ -35,9 +35,10 @@ Plug 'tpope/vim-commentary'
 " Git wrapper
 Plug 'tpope/vim-fugitive'
 
-" File Explorer with Icons
+" File Explorer with Icons and Git
 Plug 'scrooloose/nerdtree'
 Plug 'ryanoasis/vim-devicons'
+Plug 'Xuyuanp/nerdtree-git-plugin'
 
 " File searching
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
