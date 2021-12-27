@@ -162,6 +162,14 @@ endif
 syntax enable
 colorscheme dracula
 
+" Auto reload file if something changes
+" trigger `autoread` when files changes on disk
+  set autoread
+  autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * if mode() != 'c' | checktime | endif
+" notification after file change
+  autocmd FileChangedShellPost *
+    \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
+
 " Ability to copy and paste outside of vim
 if has("clipboard")
   set clipboard=unnamed " copy to the system clipboard
