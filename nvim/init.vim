@@ -214,11 +214,32 @@ endfunction
 nnoremap <c-n> :call OpenTerminal()<CR>
 :au TermClose * :q
 
-" use shift-arrow to move from terminal
+" use shift-arrow to move from terminal to vim
 tnoremap <S-LEFT> <C-\><C-n><C-w>h
 tnoremap <s-DOWN> <C-\><C-n><C-w>j
 tnoremap <S-UP> <C-\><C-n><C-w>k
 tnoremap <S-RIGHT> <C-\><C-n><C-w>l
+
+" Persistent Undo
+" Keep undo history across sessions, by storing in file."
+set viminfo+=n~/.vim/viminfo
+if exists("+undofile")
+  if isdirectory($HOME . '/.vim/undo') == 0
+    :silent !mkdir -p ~/.vim/undo > /dev/null 2>&1
+  endif
+  set undodir=./.vim-undo//
+  set undodir+=~/.vim/undo//
+  set undofile
+endif
+
+" Folds
+set foldmethod=indent   "fold based on indent
+set foldnestmax=3       "deepest fold is 3 levels
+set nofoldenable        "dont fold by default
+" Enable folding
+set foldlevel=99
+" Enable folding with the spacebar
+nnoremap <space> za
 
 " =====================================
 " Splits
