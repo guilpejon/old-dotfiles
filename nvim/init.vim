@@ -7,6 +7,10 @@ call plug#begin("~/.vim/plugged")
 " Theme
 Plug 'dracula/vim'
 
+" Ruby support
+Plug 'vim-ruby/vim-ruby'
+Plug 'tpope/vim-rails'
+
 " Buff explorer
 Plug 'jlanzarotta/bufexplorer'
 
