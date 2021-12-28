@@ -7,6 +7,9 @@ call plug#begin("~/.vim/plugged")
 " Theme
 Plug 'dracula/vim'
 
+" Change quotes to single quotes and etc
+Plug "tpope/vim-surround"
+
 " Ruby support
 Plug 'vim-ruby/vim-ruby'
 Plug 'tpope/vim-rails'
