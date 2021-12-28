@@ -7,6 +7,9 @@ call plug#begin("~/.vim/plugged")
 " Theme
 Plug 'dracula/vim'
 
+" Buff explorer
+Plug 'jlanzarotta/bufexplorer'
+
 " Auto tag
 Plug 'craigemery/vim-autotag'
 
