@@ -221,16 +221,7 @@ tnoremap <S-UP> <C-\><C-n><C-w>k
 tnoremap <S-RIGHT> <C-\><C-n><C-w>l
 
 " Persistent Undo
-" Keep undo history across sessions, by storing in file."
-set viminfo+=n~/.vim/viminfo
-if exists("+undofile")
-  if isdirectory($HOME . '/.vim/undo') == 0
-    :silent !mkdir -p ~/.vim/undo > /dev/null 2>&1
-  endif
-  set undodir=./.vim-undo//
-  set undodir+=~/.vim/undo//
-  set undofile
-endif
+set undofile
 
 " Folds
 set foldmethod=indent   "fold based on indent
