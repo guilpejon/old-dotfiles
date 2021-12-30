@@ -128,7 +128,7 @@ set nowrap                      " No wrap by default
 set linebreak                   " Break long lines at 'breakat'
 set breakat=\ \	;:,!?           " Long lines break chars
 set nostartofline               " Cursor in same column for few commands
-set whichwrap+=h,l,<,>,[,],~    " Move to following line on certain keys
+" set whichwrap+=h,l,<,>,[,],~    " Move to following line on certain keys
 set splitbelow splitright       " Splits open bottom right
 set switchbuf=uselast           " Use last window with quickfix entries
 set backspace=indent,eol,start  " Intuitive backspacing in insert mode
@@ -219,6 +219,18 @@ tnoremap <S-LEFT> <C-\><C-n><C-w>h
 tnoremap <s-DOWN> <C-\><C-n><C-w>j
 tnoremap <S-UP> <C-\><C-n><C-w>k
 tnoremap <S-RIGHT> <C-\><C-n><C-w>l
+
+" Persistent Undo
+set undofile
+
+" Folds
+set foldmethod=indent   "fold based on indent
+set foldnestmax=3       "deepest fold is 3 levels
+set nofoldenable        "dont fold by default
+" Enable folding
+set foldlevel=99
+" Enable folding with the spacebar
+nnoremap <space> za
 
 " =====================================
 " Splits
@@ -351,11 +363,18 @@ let g:autotagTagsFile="tags"
 set tags+=.tags
 
 """""""""""""""""""""""""""neoclide/coc"""""""""""""""""""""""""
-" Use tab for trigger completion with characters ahead and navigate.
-" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
-" other plugin before putting this into your config.
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~ '\s'
+endfunction
+
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
       \ <SID>check_back_space() ? "\<TAB>" :
       \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+" coc.nvim color changes
+hi! link CocErrorSign WarningMsg
+hi! link CocWarningSign Number
+hi! link CocInfoSign Type
