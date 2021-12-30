@@ -155,7 +155,7 @@ set winminwidth=10      " Minimum width for inactive windows
 " set winminheight=0      " Minimum height for inactive window
 
 set noshowcmd           " Don't show command in status line
-set cmdheight=1         " Height of the command line
+set cmdheight=2         " Height of the command line
 set cmdwinheight=5      " Command-line lines
 set equalalways         " Resize windows on split or close
 set laststatus=2        " Always show a status line
@@ -214,23 +214,11 @@ endfunction
 nnoremap <c-n> :call OpenTerminal()<CR>
 :au TermClose * :q
 
-" use shift-arrow to move from terminal to vim
+" use shift-arrow to move from terminal
 tnoremap <S-LEFT> <C-\><C-n><C-w>h
 tnoremap <s-DOWN> <C-\><C-n><C-w>j
 tnoremap <S-UP> <C-\><C-n><C-w>k
 tnoremap <S-RIGHT> <C-\><C-n><C-w>l
-
-" Persistent Undo
-set undofile
-
-" Folds
-set foldmethod=indent   "fold based on indent
-set foldnestmax=3       "deepest fold is 3 levels
-set nofoldenable        "dont fold by default
-" Enable folding
-set foldlevel=99
-" Enable folding with the spacebar
-nnoremap <space> za
 
 " =====================================
 " Splits
@@ -361,3 +349,13 @@ nnoremap <silent> <M-S-m> :<C-U>MarkdownPreviewStop<CR>
 nnoremap <leader>ct :silent ! ctags -R --languages=ruby --exclude={.git,log,node_modules,vendor,db} -f .tags<cr>
 let g:autotagTagsFile="tags"
 set tags+=.tags
+
+"""""""""""""""""""""""""""neoclide/coc"""""""""""""""""""""""""
+" Use tab for trigger completion with characters ahead and navigate.
+" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
+" other plugin before putting this into your config.
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
