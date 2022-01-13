@@ -59,7 +59,7 @@ Plug 'junegunn/fzf.vim'
 
 " auto complete
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-let g:coc_global_extensions = ['coc-emmet', 'coc-css', 'coc-html', 'coc-json', 'coc-prettier', 'coc-tsserver']
+let g:coc_global_extensions = ['coc-emmet', 'coc-css', 'coc-html', 'coc-json', 'coc-prettier', 'coc-tsserver', 'coc-solargraph']
 
 " TypeScript Highlighting
 Plug 'leafgarland/typescript-vim'
@@ -173,6 +173,18 @@ autocmd BufWritePre * %s/\s\+$//e
 if (has("termguicolors"))
  set termguicolors
 endif
+
+func! s:my_colors_setup() abort
+    hi Pmenu guibg=#121217 gui=NONE
+		hi WarningMsg guifg=#f78f32
+    hi PmenuSel guibg=#121217 gui=NONE
+    hi PmenuSbar guibg=#121217
+    hi PmenuThumb guibg=#121217
+endfunc
+
+augroup colorscheme_coc_setup | au!
+    au ColorScheme * call s:my_colors_setup()
+augroup END
 
 " THEME
 syntax enable
