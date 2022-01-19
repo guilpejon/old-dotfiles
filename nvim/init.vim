@@ -8,7 +8,9 @@ call plug#begin("~/.vim/plugged")
 Plug 'dracula/vim'
 
 " Change quotes to single quotes and etc
-Plug "tpope/vim-surround"
+Plug 'tpope/vim-surround'
+" make . repeat vim-surround commands
+Plug 'tpope/vim-repeat'
 
 " Ruby support
 Plug 'vim-ruby/vim-ruby'
