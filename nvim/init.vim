@@ -58,6 +58,7 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 " File searching
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'jesseleite/vim-agriculture'
 
 " auto complete
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -277,7 +278,7 @@ cmap w!! w !sudo tee > /dev/null %
 map <leader>h :%s///<left><left>
 
 " bind \ (backward slash) to grep shortcut
-nnoremap \ :Rg<SPACE>
+" nnoremap \ :Rg<SPACE>
 
 "map Q to something useful, like indenting the file
 noremap Q gg=G
@@ -342,6 +343,11 @@ let g:fzf_action = {
 " requires silversearcher-ag
 " used to ignore gitignore files
 let $FZF_DEFAULT_COMMAND = 'ag -g ""'
+
+nnoremap \ :RgRaw<SPACE>
+nmap <Leader>/ <Plug>RgRawSearch
+vmap <Leader>/ <Plug>RgRawVisualSelection
+nmap <Leader>* <Plug>RgRawWordUnderCursor
 
 """"""""""""""""""""""""plasticboy/vim-markdown""""""""""""""""""""""""""""
 " Disable header folding
