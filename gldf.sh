@@ -131,6 +131,10 @@ git_config() {
   git config --global user.name $user_name
   git config --global user.email $user_email
   git config --global core.editor "vim"
+  
+  # using diff-so-fancy as default
+  git config --global core.pager "diff-so-fancy | less --tabs=4 -RFX"
+  git config --global interactive.diffFilter "diff-so-fancy --patch"
 }
 
 vim_config() {
