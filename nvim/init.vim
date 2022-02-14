@@ -5,7 +5,7 @@
 call plug#begin("~/.vim/plugged")
 
 " Theme
-Plug 'dracula/vim'
+Plug 'morhetz/gruvbox'
 
 " Change quotes to single quotes and etc
 Plug 'tpope/vim-surround'
@@ -191,7 +191,8 @@ augroup END
 
 " THEME
 syntax enable
-colorscheme dracula
+set background=dark
+colorscheme gruvbox
 
 " Auto reload file if something changes
 " trigger `autoread` when files changes on disk
