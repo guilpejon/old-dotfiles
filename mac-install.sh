@@ -61,6 +61,10 @@ install_or_upgrade wget
 install_or_upgrade wireguard-tools
 brew install --cask ngrok
 
+# install lvim
+curl https://sh.rustup.rs -sSf | sh
+bash <(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/master/utils/installer/install.sh)
+
 install_or_upgrade asdf
 echo -e "\n. $(brew --prefix asdf)/libexec/asdf.sh" >> ~/.zshrc
 brew install gpg
