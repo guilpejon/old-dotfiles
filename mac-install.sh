@@ -66,7 +66,7 @@ curl https://sh.rustup.rs -sSf | sh
 bash <(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/master/utils/installer/install.sh)
 
 # install rust terminal plugins
-cargo install bat exa procs dust tokei ytop tealdeer grex zoxide delta
+cargo install bat exa procs du-dust tokei ytop tealdeer grex zoxide git-delta
 
 install_or_upgrade asdf
 echo -e "\n. $(brew --prefix asdf)/libexec/asdf.sh" >> ~/.zshrc
